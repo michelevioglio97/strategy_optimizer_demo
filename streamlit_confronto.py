@@ -126,7 +126,8 @@ def color_positive_green(val):
 
 state_index = multi_index_tuples.index(tuple(state.values()))
 
-col1, padding, col2 = st.columns((20,2,20))
+col1 = st.columns((20,2,20))
+# padding, col2 
 with col1:
     Q_matrix = pd.read_csv("df_Q_matrix_almost_all_files_06_03_test_beta_0.3_light_for_Github.csv", index_col = [0,1,2,3,4,5,6,7])
 
@@ -143,16 +144,16 @@ with col1:
 
     # (df_Q.style.highlight_between("q-values", left = 0, right = 1000000, color = "green")\
     #             .highlight_between("q-values", left = -1000000, right = -1, color = "orange")
-with col2:
-    Q_matrix2 = pd.read_csv("df_Q_matrix_almost_all_files_05_03_test_beta_0.4_originale_colonne_invertite.csv", index_col = [0,1,2,3,4,5,6,7])
+# with col2:
+#     Q_matrix2 = pd.read_csv("df_Q_matrix_almost_all_files_05_03_test_beta_0.4_originale_colonne_invertite.csv", index_col = [0,1,2,3,4,5,6,7])
 
-    df_Q2 = pd.DataFrame(Q_matrix2.iloc[state_index], index = action_list_values)
-    df_Q2["description"] = "ciao"
-    df_Q2 = df_Q2[df_Q2.iloc[:,0] != 0]
-    df_Q2 = df_Q2.set_axis(["q-values", "description"],axis = 1) # , inplace = True
-    for i in df_Q2.index:
-        df_Q2.loc[i,"description"] = action_description_dict[i]
-    df_Q2 = df_Q2.sort_values("q-values", ascending = False)
-    #df_Q2.style.highlight_between(left = 0, right = 1000000)
-    st.dataframe(df_Q2.style.applymap(color_positive_green)\
-                .format({"q-values":"{:.0f}€"}), height = 1000, width = 1000)
+#     df_Q2 = pd.DataFrame(Q_matrix2.iloc[state_index], index = action_list_values)
+#     df_Q2["description"] = "ciao"
+#     df_Q2 = df_Q2[df_Q2.iloc[:,0] != 0]
+#     df_Q2 = df_Q2.set_axis(["q-values", "description"],axis = 1) # , inplace = True
+#     for i in df_Q2.index:
+#         df_Q2.loc[i,"description"] = action_description_dict[i]
+#     df_Q2 = df_Q2.sort_values("q-values", ascending = False)
+#     #df_Q2.style.highlight_between(left = 0, right = 1000000)
+#     st.dataframe(df_Q2.style.applymap(color_positive_green)\
+#                 .format({"q-values":"{:.0f}€"}), height = 1000, width = 1000)
