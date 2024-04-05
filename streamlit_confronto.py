@@ -128,7 +128,7 @@ state_index = multi_index_tuples.index(tuple(state.values()))
 
 col1, padding, col2 = st.columns((20,2,20))
 with col1:
-    Q_matrix = pd.read_csv("df_Q_matrix_almost_all_files_06_03_test_beta_0.3.csv", index_col = [0,1,2,3,4,5,6,7])
+    Q_matrix = pd.read_csv("df_Q_matrix_almost_all_files_06_03_test_beta_0.3_light_for_Github.csv", index_col = [0,1,2,3,4,5,6,7])
 
     df_Q = pd.DataFrame(Q_matrix.iloc[state_index], index = action_list_values)
     df_Q["description"] = "ciao"
