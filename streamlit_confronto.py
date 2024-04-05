@@ -67,7 +67,7 @@ gbv_bins = ['0-25k', '25-100k',
         '100-200k', '200-500k', '500-1000k','>1000k']
 
 #type of non-performing exposure: npl or utp
-npe_type =["npl", "utp", "bonis"]
+npe_type =["npl", "utp"]
 technical_form = ["bank_account", "first_home_loan", "unsecured_loan","mortgage", "other_form", "minor_form"]
 
 #index for the estimated recoverability of a file, by AMCO itself, so a subjective attribute for the file 
@@ -81,7 +81,7 @@ time_from_start_bins = ["0_6_months", "6_12_months", "12_24_months", "24+_months
 revenues_over_gbv_bins = ["no_revenue_over_gbv", "0.01_5%_gbv_recovered", "5%_10%_gbv_recovered", "10_20%_gbv_recovered", "20%+_gbv_recovered"]
 
 #10 = cribis, 6 = fire, 9 = advanced_trade, 7 = sistemia, 00 = AMCO,altro
-servicers = ["amco","fire", "cribis", "advanced_trade", "sistemia", "other_servicer"]
+servicers = ["amco","fire", "other_servicer"]
 
 action_list_values = list(set(action_dict.values()))
 multi_index_tuples = [(gbv_bins[g], npe_type[n], technical_form[tec], max_recovery_value_bins[r],macroregions[m],time_from_start_bins[t], revenues_over_gbv_bins[rev], servicers[s]) for g in np.arange(0, np.size(gbv_bins)) for n in np.arange(0,np.size(npe_type)) for tec in np.arange(0, np.size(technical_form)) for r in np.arange(0, np.size(max_recovery_value_bins)) for m in np.arange(0, np.size(macroregions)) for t in np.arange(0,np.size(time_from_start_bins)) for rev in np.arange(0,np.size(revenues_over_gbv_bins)) for s in np.arange(0, np.size(servicers))]
