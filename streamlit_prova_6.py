@@ -128,7 +128,7 @@ state_index = multi_index_tuples.index(tuple(state.values()))
 df_Q = pd.DataFrame(Q_matrix.iloc[state_index], index = action_list_values)
 df_Q["description"] = "ciao"
 df_Q = df_Q[df_Q.iloc[:,0] != 0]
-df_Q.set_axis(["q-values", "description"],axis = 1, inplace = True)
+df_Q = df_Q.set_axis(["q-values", "description"],axis = 1)
 for i in df_Q.index:
     df_Q.loc[i,"description"] = action_description_dict[i]
 df_Q = df_Q.sort_values("q-values", ascending = False)
